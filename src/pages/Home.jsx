@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { fetchMovieInfo } from 'services/api';
 
@@ -7,16 +8,18 @@ const Home = () => {
 
   useEffect(() => {
     const route = '/trending/movie/week';
+    toast.loading('Wait a minute...', { duration: 700 });
 
-    async function fetchTrending() {
+    setTimeout(async () => {
       try {
         const { results } = await fetchMovieInfo(route);
         setMovies([...results]);
       } catch (error) {
         console.log(error);
+      } finally {
+        toast.success('Successfully fetched!');
       }
-    }
-    fetchTrending();
+    }, 800);
   }, []);
 
   return (

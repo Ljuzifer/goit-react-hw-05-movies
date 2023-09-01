@@ -10,7 +10,7 @@ const MovieInfo = () => {
 
   useEffect(() => {
     const route = `/movie/${movieId}`;
-    toast.loading('Wait a minute...', { duration: 400 });
+    toast.loading('Wait a minute...', { duration: 700 });
 
     setTimeout(async () => {
       try {
@@ -22,7 +22,7 @@ const MovieInfo = () => {
       } finally {
         toast.success('Successfully fetched!');
       }
-    }, 500);
+    }, 800);
   }, [movieId]);
 
   if (info === null) {
