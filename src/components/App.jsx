@@ -1,5 +1,5 @@
 import { Toaster } from 'react-hot-toast';
-import { NavLink, Outlet, Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import MoviesPage from 'pages/MoviesPage';
 import MovieDetailsPage from 'pages/MovieDetailsPage';
 import HomePage from 'pages/HomePage';
