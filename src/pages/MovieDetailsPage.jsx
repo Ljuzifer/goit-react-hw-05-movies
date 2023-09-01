@@ -20,7 +20,7 @@ const MovieDetailsPage = () => {
         console.warn(error);
         toast.error('Oops! Something went wrong...');
       } finally {
-        toast.success('Successfully fetched!');
+        toast.success('Ok! Let`s see what we have...');
       }
     }, 800);
   }, [movieId]);

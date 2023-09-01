@@ -10,7 +10,7 @@ const MoviesCast = () => {
 
   useEffect(() => {
     const route = `/movie/${movieId}/credits`;
-    // toast.loading('Wait a minute...', { duration: 700 });
+    toast.loading('Wait a minute...', { duration: 400 });
 
     setTimeout(async () => {
       try {
