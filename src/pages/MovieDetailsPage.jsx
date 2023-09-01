@@ -1,6 +1,6 @@
 import { RiArrowLeftCircleFill } from 'react-icons/ri';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import { fetchMovieInfo } from 'services/api';
 import { toast } from 'react-hot-toast';
 
@@ -66,13 +66,12 @@ const MovieDetailsPage = () => {
               padding: '4px',
               marginBottom: '2px',
               textDecoration: 'none',
-              backgroundColor: 'lightgrey',
             }}
           >
             <RiArrowLeftCircleFill /> Go back
           </Link>
           <section style={{ display: 'flex' }}>
-            <img src={poster} alt={original_title} />
+            <img src={poster} alt={original_title} width="342" />
             <div style={{ marginLeft: '22px' }}>
               <h2>
                 {title} ({release})
@@ -91,16 +90,30 @@ const MovieDetailsPage = () => {
               <ul style={{ display: 'flex', listStyle: 'none', padding: 0 }}>
                 {tags}
               </ul>
-              <p>Homepage: </p>
-              <a href={homepage} target="_blank" rel="noreferrer">
-                {homepage}
-              </a>
+              {homepage && (
+                <div>
+                  <p>Homepage: </p>
+                  <a href={homepage} target="_blank" rel="noreferrer">
+                    {homepage}
+                  </a>
+                </div>
+              )}
             </div>
           </section>
           <hr />
           <section>
             <h5>Additional information</h5>
+            <ul>
+              <li>
+                <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+              </li>
+              <li>
+                <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+              </li>
+            </ul>
           </section>
+          <hr />
+          <Outlet />
         </main>
       )}
     </>

@@ -1,6 +1,6 @@
+import SearchMoviesList from 'components/SearchMoviesList/SearchMoviesList';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
 import { fetchMovieInfo } from 'services/api';
 
 const HomePage = () => {
@@ -27,11 +27,7 @@ const HomePage = () => {
       <h2>Trending this week...</h2>
 
       <ul>
-        {movies.map(film => (
-          <li key={film.id}>
-            <Link to={`/movies/${film.id}`}>{film.title}</Link>
-          </li>
-        ))}
+        <SearchMoviesList movies={movies} />
       </ul>
     </main>
   );
