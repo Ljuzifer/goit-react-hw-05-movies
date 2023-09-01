@@ -17,7 +17,7 @@ const HomePage = () => {
       } catch (error) {
         console.log(error);
       } finally {
-        toast.success('Successfully fetched!');
+        toast.success('So, what trending this week...?');
       }
     }, 800);
   }, []);
