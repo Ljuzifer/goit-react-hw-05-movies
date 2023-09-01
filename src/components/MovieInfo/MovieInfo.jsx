@@ -1,5 +1,5 @@
 import { RiArrowLeftCircleFill } from 'react-icons/ri';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchMovieInfo } from 'services/api';
 import { toast } from 'react-hot-toast';
@@ -7,16 +7,14 @@ import { toast } from 'react-hot-toast';
 const MovieInfo = () => {
   const { movieId } = useParams();
   const [info, setInfo] = useState(null);
-  const route = useRef(`/movie/${movieId}`);
+
   useEffect(() => {
-    // const route = `/movie/${movieId}`;
-    console.log(movieId);
+    const route = `/movie/${movieId}`;
     toast.loading('Wait a minute...', { duration: 400 });
 
     setTimeout(async () => {
       try {
-        const movieDetails = await fetchMovieInfo(route.current);
-        console.log(movieDetails);
+        const movieDetails = await fetchMovieInfo(route);
         setInfo(movieDetails);
       } catch (error) {
         console.warn(error);
@@ -58,8 +56,20 @@ const MovieInfo = () => {
       {info && (
         <main style={{ padding: '8px' }}>
           <hr />
-          <Link to={'/'}>
-            <RiArrowLeftCircleFill /> Go back home
+          <Link
+            to={'/'}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              width: 'fit-content',
+              border: '1px solid',
+              padding: '4px',
+              marginBottom: '2px',
+              textDecoration: 'none',
+              backgroundColor: 'lightgrey',
+            }}
+          >
+            <RiArrowLeftCircleFill /> Go back
           </Link>
           <section style={{ display: 'flex' }}>
             <img src={poster} alt={original_title} />
