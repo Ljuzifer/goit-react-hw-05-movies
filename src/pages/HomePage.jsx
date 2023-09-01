@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { fetchMovieInfo } from 'services/api';
 
-const Home = () => {
+const HomePage = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -37,4 +37,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

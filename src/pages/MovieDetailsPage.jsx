@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { fetchMovieInfo } from 'services/api';
 import { toast } from 'react-hot-toast';
 
-const MovieDetails = () => {
+const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [info, setInfo] = useState(null);
 
@@ -107,4 +107,4 @@ const MovieDetails = () => {
   );
 };
 
-export default MovieDetails;
+export default MovieDetailsPage;
