@@ -71,7 +71,7 @@ const MovieDetailsPage = () => {
             <RiArrowLeftCircleFill /> Go back
           </Link>
           <section style={{ display: 'flex' }}>
-            <img src={poster} alt={original_title} width="342" />
+            <img src={poster} alt={original_title} width="280" height="420" />
             <div style={{ marginLeft: '22px' }}>
               <h2>
                 {title} ({release})
