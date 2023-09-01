@@ -1,7 +1,7 @@
-import Home from 'pages/Home';
+import { Toaster } from 'react-hot-toast';
 import { NavLink, Route, Routes } from 'react-router-dom';
+import Home from 'pages/Home';
 import MovieInfo from './MovieInfo/MovieInfo';
-// import Trending from './Trending/Trending';
 
 export const App = () => {
   return (
@@ -19,6 +19,7 @@ export const App = () => {
           <Route path="/movies/:movieId/reviews" element={<div>Reviews</div>} />
         </Route>
       </Routes>
+      <Toaster />
     </>
   );
 };

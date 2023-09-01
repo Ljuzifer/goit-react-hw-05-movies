@@ -11,7 +11,6 @@ const Home = () => {
     async function fetchTrending() {
       try {
         const { results } = await fetchMovieInfo(route);
-        console.log(results);
         setMovies([...results]);
       } catch (error) {
         console.log(error);
@@ -19,8 +18,6 @@ const Home = () => {
     }
     fetchTrending();
   }, []);
-
-  //   const [id, title] = results;
 
   return (
     <main>
