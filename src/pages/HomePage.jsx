@@ -2,6 +2,7 @@ import { toast } from 'react-hot-toast';
 import { useEffect, useState } from 'react';
 import SearchMoviesList from 'components/SearchMoviesList/SearchMoviesList';
 import { fetchMovieInfo } from 'services/api';
+import { HomeTitle, MainList } from 'components/SharedLayout/SharedLayout.styled';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -24,11 +25,11 @@ const HomePage = () => {
 
   return (
     <main>
-      <h2>Trending this week...</h2>
+      <HomeTitle>Trending this week...</HomeTitle>
 
-      <ul>
+      <MainList>
         <SearchMoviesList movies={movies} />
-      </ul>
+      </MainList>
     </main>
   );
 };

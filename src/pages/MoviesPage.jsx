@@ -3,6 +3,11 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchMovieInfo } from 'services/api';
 import SearchMoviesList from 'components/SearchMoviesList/SearchMoviesList';
+import {
+  HomeTitle,
+  MainList,
+  SearchForm,
+} from 'components/SharedLayout/SharedLayout.styled';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -31,8 +36,8 @@ const MoviesPage = () => {
 
     setTimeout(async () => {
       try {
-        const { results, total_results } = await fetchMovieInfo(route, some);
-        toast.success(`Yeah! We've found ${total_results} movies!`);
+        const { results } = await fetchMovieInfo(route, some);
+        toast.success(`Yeah! You've got ${results.length} movies!`);
         setMovies([...results]);
       } catch (error) {
         console.warn(error);
@@ -43,8 +48,12 @@ const MoviesPage = () => {
 
   return (
     <main>
-      {currentSearch === '' && <h2>Ok! Let's find some movie...</h2>}
-      <form onSubmit={onChangeSearch}>
+      {currentSearch === '' ? (
+        <HomeTitle>Ok! Let's find some movie...</HomeTitle>
+      ) : (
+        <div style={{ height: '70px' }}></div>
+      )}
+      <SearchForm onSubmit={onChangeSearch}>
         <input
           type="text"
           name="search"
@@ -52,13 +61,13 @@ const MoviesPage = () => {
           placeholder="Search movies"
         />
         <button type="submit">Go on</button>
-      </form>
+      </SearchForm>
       <hr />
       {movies !== [] && (
         <section>
-          <ul>
+          <MainList>
             <SearchMoviesList movies={movies} />
-          </ul>
+          </MainList>
         </section>
       )}
     </main>

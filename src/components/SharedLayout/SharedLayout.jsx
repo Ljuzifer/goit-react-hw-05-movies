@@ -1,23 +1,24 @@
 import { BiSolidCameraMovie } from 'react-icons/bi';
 import { SiThemoviedatabase } from 'react-icons/si';
 import { Suspense } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { MainHead, NavigationLink } from './SharedLayout.styled';
 
 const SharedLayout = () => {
   return (
     <>
-      <header>
+      <MainHead>
         <nav>
-          <NavLink to="/">
+          <NavigationLink to="/">
             <SiThemoviedatabase />
             Home
-          </NavLink>
-          <NavLink to="/movies">
+          </NavigationLink>
+          <NavigationLink to="/movies">
             <BiSolidCameraMovie />
             Movies
-          </NavLink>
+          </NavigationLink>
         </nav>
-      </header>
+      </MainHead>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>

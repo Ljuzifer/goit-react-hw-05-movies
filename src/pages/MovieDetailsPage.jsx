@@ -3,6 +3,12 @@ import { toast } from 'react-hot-toast';
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieInfo } from 'services/api';
+import {
+  BackButton,
+  InfoArea,
+  LoadingDiv,
+  PosterArea,
+} from 'components/SharedLayout/SharedLayout.styled';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -48,7 +54,7 @@ const MovieDetailsPage = () => {
   const tags =
     genres &&
     genres.map(tag => (
-      <li key={tag.id} style={{ marginRight: '22px' }}>
+      <li key={tag.id}>
         <p>{tag.name}</p>
       </li>
     ));
@@ -56,25 +62,14 @@ const MovieDetailsPage = () => {
   return (
     <>
       {info && (
-        <main style={{ padding: '8px' }}>
+        <main>
           <hr />
-          <Link
-            to={backLocationRef.current}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              width: 'fit-content',
-              border: '1px solid',
-              padding: '4px',
-              marginBottom: '2px',
-              textDecoration: 'none',
-            }}
-          >
+          <BackButton to={backLocationRef.current}>
             <RiArrowLeftCircleFill /> Go back
-          </Link>
-          <section style={{ display: 'flex' }}>
-            <img src={poster} alt={original_title} width="280" height="420" />
-            <div style={{ marginLeft: '22px' }}>
+          </BackButton>
+          <PosterArea>
+            <img src={poster} alt={original_title} width="220" height="368" />
+            <InfoArea>
               <h2>
                 {title} ({release})
               </h2>
@@ -89,9 +84,7 @@ const MovieDetailsPage = () => {
               <h3>Overview</h3>
               <p>{overview} </p>
               <h4>Genres</h4>
-              <ul style={{ display: 'flex', listStyle: 'none', padding: 0 }}>
-                {tags}
-              </ul>
+              <ul>{tags}</ul>
               {homepage && (
                 <div>
                   <p>Homepage: </p>
@@ -100,8 +93,8 @@ const MovieDetailsPage = () => {
                   </a>
                 </div>
               )}
-            </div>
-          </section>
+            </InfoArea>
+          </PosterArea>
           <hr />
           <section>
             <h5>Additional information</h5>
@@ -115,7 +108,7 @@ const MovieDetailsPage = () => {
             </ul>
           </section>
           <hr />
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingDiv>Loading...</LoadingDiv>}>
             <Outlet />
           </Suspense>
         </main>

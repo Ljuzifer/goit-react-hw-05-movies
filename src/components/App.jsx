@@ -2,6 +2,7 @@ import { Toaster } from 'react-hot-toast';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './SharedLayout/SharedLayout';
+import { GlobalStyle } from './GlobalStyle';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const MoviesPage = lazy(() => import('../pages/MoviesPage'));
@@ -23,6 +24,7 @@ export const App = () => {
         </Route>
       </Routes>
       <Toaster />
+      <GlobalStyle />
     </>
   );
 };
