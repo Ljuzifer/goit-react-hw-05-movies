@@ -40,7 +40,7 @@ export const MainHead = styled.header`
   width: 100%;
   height: 66px;
   border-bottom: 2px solid darkgrey;
-  background-color: lightgrey;
+  background-color: rgba(120, 120, 120, 0.2);
 
   nav {
     display: flex;
