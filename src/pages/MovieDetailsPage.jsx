@@ -53,9 +53,6 @@ const MovieDetailsPage = () => {
       </li>
     ));
 
-  console.log(location);
-  console.log(backLocationRef);
-
   return (
     <>
       {info && (

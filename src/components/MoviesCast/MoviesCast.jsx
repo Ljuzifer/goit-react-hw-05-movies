@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieInfo } from 'services/api';
 
 const MoviesCast = () => {
   const { movieId } = useParams();
   const [details, setDetails] = useState([]);
-  // /movie/{movie_id}/credits
 
   useEffect(() => {
     const route = `/movie/${movieId}/credits`;
@@ -37,8 +36,6 @@ const MoviesCast = () => {
                   `http://image.tmdb.org/t/p/w185${info.profile_path}`
                 }
                 alt={info.original_name}
-                // width="68"
-                // height="102"
               />
               <h3>{info.name} </h3>
               <p>

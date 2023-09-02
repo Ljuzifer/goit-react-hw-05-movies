@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { TbMoodCry } from 'react-icons/tb';
 import { toast } from 'react-hot-toast';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieInfo } from 'services/api';
-import { TbMoodCry } from 'react-icons/tb';
 
 const MoviesReviews = () => {
   const { movieId } = useParams();
@@ -30,27 +30,27 @@ const MoviesReviews = () => {
 
   return (
     <section>
-      {details?.length === 0 && (
+      {details?.length === 0 ? (
         <b style={{ textAlign: 'center' }}>
           Sorry, we don't have any reviews for this movie...
           <TbMoodCry />
         </b>
+      ) : (
+        <ul style={{ listStyle: 'none' }}>
+          {details.map(item => (
+            <li key={item.id}>
+              <p>
+                Author: <b>{item.author} </b>
+              </p>
+              <span style={{ textDecoration: 'underline' }}>
+                {item.created_at.slice(0, 10)}{' '}
+              </span>
+              <p>{item.content}</p>
+              <hr />
+            </li>
+          ))}
+        </ul>
       )}
-
-      <ul style={{ listStyle: 'none' }}>
-        {details.map(item => (
-          <li key={item.id}>
-            <p>
-              Author: <b>{item.author} </b>
-            </p>
-            <span style={{ textDecoration: 'underline' }}>
-              {item.created_at.slice(0, 10)}{' '}
-            </span>
-            <p>{item.content}</p>
-            <hr />
-          </li>
-        ))}
-      </ul>
     </section>
   );
 };
