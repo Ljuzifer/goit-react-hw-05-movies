@@ -68,7 +68,7 @@ const MovieDetailsPage = () => {
             <RiArrowLeftCircleFill /> Go back
           </BackButton>
           <PosterArea>
-            <img src={poster} alt={original_title} width="220" height="368" />
+            <img src={poster} alt={original_title} width="220" height="340" />
             <InfoArea>
               <h2>
                 {title} ({release})

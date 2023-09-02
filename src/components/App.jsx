@@ -7,6 +7,7 @@ import { GlobalStyle } from './GlobalStyle';
 const HomePage = lazy(() => import('../pages/HomePage'));
 const MoviesPage = lazy(() => import('../pages/MoviesPage'));
 const MovieDetailsPage = lazy(() => import('../pages/MovieDetailsPage'));
+const NotFound = lazy(() => import('../pages/NotFounfPage'));
 const MoviesCast = lazy(() => import('./MoviesCast/MoviesCast'));
 const MoviesReviews = lazy(() => import('./MoviesReviews/MoviesReviews'));
 
@@ -22,6 +23,7 @@ export const App = () => {
             <Route path="reviews" element={<MoviesReviews />} />
           </Route>
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster />
       <GlobalStyle />
