@@ -6,7 +6,7 @@ import { fetchMovieInfo } from 'services/api';
 
 const MoviesReviews = () => {
   const { movieId } = useParams();
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState(null);
 
   useEffect(() => {
     const route = `/movie/${movieId}/reviews`;
@@ -37,7 +37,7 @@ const MoviesReviews = () => {
         </b>
       ) : (
         <ul style={{ listStyle: 'none' }}>
-          {details.map(item => (
+          {details?.map(item => (
             <li key={item.id}>
               <p>
                 Author: <b>{item.author} </b>
