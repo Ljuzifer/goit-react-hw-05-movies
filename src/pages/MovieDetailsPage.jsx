@@ -63,10 +63,10 @@ const MovieDetailsPage = () => {
     <>
       {info && (
         <main>
-          <hr />
           <BackButton to={backLocationRef.current}>
             <RiArrowLeftCircleFill /> Go back
           </BackButton>
+          <hr />
           <PosterArea>
             <img src={poster} alt={original_title} width="220" height="340" />
             <InfoArea>
