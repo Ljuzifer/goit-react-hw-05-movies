@@ -18,7 +18,6 @@ const MoviesPage = () => {
       return;
     }
     setSearchQuery({ search: newSearch });
-    // e.target.elements.search.value = '';
   };
 
   useEffect(() => {
@@ -49,7 +48,6 @@ const MoviesPage = () => {
         <input
           type="text"
           name="search"
-          // autoComplete="off"
           autoFocus
           placeholder="Search movies"
         />

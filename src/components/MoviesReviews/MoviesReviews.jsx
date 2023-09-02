@@ -32,10 +32,11 @@ const MoviesReviews = () => {
     <section>
       {details?.length === 0 && (
         <b style={{ textAlign: 'center' }}>
-          Sorry, we don't have any reviews for this movies...
+          Sorry, we don't have any reviews for this movie...
           <TbMoodCry />
         </b>
       )}
+
       <ul style={{ listStyle: 'none' }}>
         {details.map(item => (
           <li key={item.id}>

@@ -30,7 +30,7 @@ const MoviesCast = () => {
       <ul style={{ listStyle: 'none' }}>
         {details !== [] &&
           details.map(info => (
-            <li key={info.id}>
+            <li key={info.credit_id}>
               <img
                 src={
                   info.profile_path &&

@@ -1,6 +1,6 @@
-import SearchMoviesList from 'components/SearchMoviesList/SearchMoviesList';
-import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useEffect, useState } from 'react';
+import SearchMoviesList from 'components/SearchMoviesList/SearchMoviesList';
 import { fetchMovieInfo } from 'services/api';
 
 const HomePage = () => {

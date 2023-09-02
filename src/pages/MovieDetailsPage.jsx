@@ -1,12 +1,14 @@
 import { RiArrowLeftCircleFill } from 'react-icons/ri';
-import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
-import { fetchMovieInfo } from 'services/api';
 import { toast } from 'react-hot-toast';
+import { Suspense, useEffect, useRef, useState } from 'react';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { fetchMovieInfo } from 'services/api';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [info, setInfo] = useState(null);
+  const location = useLocation();
+  const backLocationRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     const route = `/movie/${movieId}`;
@@ -51,13 +53,16 @@ const MovieDetailsPage = () => {
       </li>
     ));
 
+  console.log(location);
+  console.log(backLocationRef);
+
   return (
     <>
       {info && (
         <main style={{ padding: '8px' }}>
           <hr />
           <Link
-            to={'/'}
+            to={backLocationRef.current}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -105,15 +110,17 @@ const MovieDetailsPage = () => {
             <h5>Additional information</h5>
             <ul>
               <li>
-                <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+                <Link to={'cast'}>Cast</Link>
               </li>
               <li>
-                <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+                <Link to={'reviews'}>Reviews</Link>
               </li>
             </ul>
           </section>
           <hr />
-          <Outlet />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Outlet />
+          </Suspense>
         </main>
       )}
     </>
