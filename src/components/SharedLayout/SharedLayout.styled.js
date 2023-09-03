@@ -46,7 +46,7 @@ export const MainHead = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 550px;
+    width: 6000px;
     margin: auto;
   }
 `;
