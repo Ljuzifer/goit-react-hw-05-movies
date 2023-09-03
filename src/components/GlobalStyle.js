@@ -12,6 +12,11 @@ body {
   background-color: lightyellow;
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
