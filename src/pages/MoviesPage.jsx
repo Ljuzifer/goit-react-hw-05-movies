@@ -25,8 +25,6 @@ const MoviesPage = () => {
     setSearchQuery({ search: newSearch });
   };
 
-  // const onChangeSearch = () => {};
-
   useEffect(() => {
     if (currentSearch === '') {
       return;
@@ -63,10 +61,9 @@ const MoviesPage = () => {
         <input
           type="text"
           name="search"
-          // value={currentSearch}
+          defaultValue={currentSearch}
           autoFocus
           placeholder="Search movies"
-          // onChange={onChangeSearch}
         />
         <button type="submit">Go on</button>
       </SearchForm>
