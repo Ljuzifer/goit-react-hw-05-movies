@@ -12,7 +12,7 @@ const SearchMoviesList = ({ movies }) => {
             <img
               src={
                 film.poster_path &&
-                `http://image.tmdb.org/t/p/w92${film.poster_path}`
+                `https://image.tmdb.org/t/p/w92${film.poster_path}`
               }
               alt={film.original_title}
               width="48"

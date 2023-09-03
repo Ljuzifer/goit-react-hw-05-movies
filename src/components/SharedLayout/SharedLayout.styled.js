@@ -46,7 +46,7 @@ export const MainHead = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 6000px;
+    width: 600px;
     margin: auto;
   }
 `;
@@ -88,6 +88,7 @@ export const SearchForm = styled.form`
 export const MainList = styled.ul`
   width: 550px;
   margin: auto;
+  padding: 0;
   list-style: none;
 
   li {
@@ -128,19 +129,32 @@ export const BackButton = styled(Link)`
 export const PosterArea = styled.section`
   display: flex;
 
+  h5 {
+    margin-top: 0;
+  }
+
   ul {
     display: flex;
     list-style: none;
     padding: 0;
+    margin-top: 0;
+    height: fit-content;
 
     li {
       margin-right: 18px;
+
+      p {
+        margin-bottom: 0;
+      }
     }
   }
 `;
 
 export const InfoArea = styled.div`
   margin-left: 22px;
+  h4 {
+    margin-bottom: 0;
+  }
 `;
 
 export const LoadingDiv = styled.div`
@@ -148,4 +162,6 @@ export const LoadingDiv = styled.div`
   font-weight: 500;
   text-transform: uppercase;
   text-align: center;
+  margin: 0;
+  padding: 0;
 `;
