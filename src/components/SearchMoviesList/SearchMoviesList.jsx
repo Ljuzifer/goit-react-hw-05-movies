@@ -1,4 +1,5 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { PosterListLink } from './SearchMoviesList.styled';
 
 const SearchMoviesList = ({ movies }) => {
   const location = useLocation();
@@ -7,9 +8,18 @@ const SearchMoviesList = ({ movies }) => {
     <>
       {movies.map(film => (
         <li key={film.id}>
-          <Link to={`/movies/${film.id}`} state={{ from: location }}>
+          <PosterListLink to={`/movies/${film.id}`} state={{ from: location }}>
+            <img
+              src={
+                film.poster_path &&
+                `http://image.tmdb.org/t/p/w92${film.poster_path}`
+              }
+              alt={film.original_title}
+              width="48"
+              height="72"
+            />
             {film.title}
-          </Link>
+          </PosterListLink>
         </li>
       ))}
     </>

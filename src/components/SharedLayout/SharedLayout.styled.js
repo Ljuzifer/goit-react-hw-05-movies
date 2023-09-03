@@ -88,12 +88,14 @@ export const SearchForm = styled.form`
 export const MainList = styled.ul`
   width: 550px;
   margin: auto;
+  list-style: none;
 
   li {
     text-transform: uppercase;
   }
 
   li::marker {
+    align-content: center;
     font-size: 28px;
     font-weight: 800;
   }
