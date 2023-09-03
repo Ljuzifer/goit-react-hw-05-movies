@@ -17,7 +17,6 @@ const HomePage = () => {
     setTimeout(async () => {
       try {
         const { results } = await fetchMovieInfo(route);
-        console.log(results);
         setMovies([...results]);
       } catch (error) {
         console.log(error);
