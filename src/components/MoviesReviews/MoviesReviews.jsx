@@ -3,6 +3,7 @@ import { toast } from 'react-hot-toast';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieInfo } from 'services/api';
+import { NoReviews } from 'components/SharedLayout/SharedLayout.styled';
 
 const MoviesReviews = () => {
   const { movieId } = useParams();
@@ -30,11 +31,11 @@ const MoviesReviews = () => {
 
   return (
     <section>
-      {details?.length === 0 ? (
-        <b style={{ textAlign: 'center' }}>
+      {details === null ? (
+        <NoReviews>
           Sorry, we don't have any reviews for this movie...
           <TbMoodCry />
-        </b>
+        </NoReviews>
       ) : (
         <ul style={{ listStyle: 'none' }}>
           {details?.map(item => (
@@ -43,7 +44,7 @@ const MoviesReviews = () => {
                 Author: <b>{item.author} </b>
               </p>
               <span style={{ textDecoration: 'underline' }}>
-                {item.created_at.slice(0, 10)}{' '}
+                {item.created_at.slice(0, 10)}
               </span>
               <p>{item.content}</p>
               <hr />

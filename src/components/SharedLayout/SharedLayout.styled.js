@@ -165,3 +165,17 @@ export const LoadingDiv = styled.div`
   margin: 0;
   padding: 0;
 `;
+
+export const NoReviews = styled.b`
+  display: table;
+  margin: auto;
+  color: black;
+  font-size: 22px;
+
+  svg {
+    width: 44px;
+    height: 44px;
+    margin-left: 13px;
+    color: darkred;
+  }
+`;

@@ -14,7 +14,7 @@ const MoviesPage = () => {
   const [searchQuery, setSearchQuery] = useSearchParams();
   const currentSearch = searchQuery.get('search') ?? '';
 
-  const onChangeSearch = e => {
+  const onSubmitSearch = e => {
     e.preventDefault();
     const newSearch = e.target.elements.search.value;
 
@@ -24,6 +24,8 @@ const MoviesPage = () => {
     }
     setSearchQuery({ search: newSearch });
   };
+
+  // const onChangeSearch = () => {};
 
   useEffect(() => {
     if (currentSearch === '') {
@@ -37,6 +39,10 @@ const MoviesPage = () => {
     setTimeout(async () => {
       try {
         const { results } = await fetchMovieInfo(route, some);
+        if (results.length === 0) {
+          toast('Sorry,no movies with this query');
+          return;
+        }
         toast.success(`Yeah! You've got ${results.length} movies!`);
         setMovies([...results]);
       } catch (error) {
@@ -53,12 +59,14 @@ const MoviesPage = () => {
       ) : (
         <div style={{ height: '70px' }}></div>
       )}
-      <SearchForm onSubmit={onChangeSearch}>
+      <SearchForm onSubmit={onSubmitSearch}>
         <input
           type="text"
           name="search"
+          // value={currentSearch}
           autoFocus
           placeholder="Search movies"
+          // onChange={onChangeSearch}
         />
         <button type="submit">Go on</button>
       </SearchForm>
